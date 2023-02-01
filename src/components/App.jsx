@@ -1,16 +1,24 @@
+import Section from "./section";
+import Contacts from "./contacts";
+import Form from "./form/form";
+import Filter from './filter';
+import { Routes, Route } from "react-router-dom";
+// import { useSelector } from "react-redux";
+
 export const App = () => {
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route path="/" element={
+        <Section title='Phonebook'>
+      <Form />
+        <Contacts title='Contacts'>
+          <Filter />
+        </Contacts>
+      </Section>} />
+    <Route path="*" element={<p>No Content</p>} />
+    </Routes>
   );
-};
+}
+
+

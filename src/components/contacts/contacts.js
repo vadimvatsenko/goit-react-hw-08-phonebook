@@ -1,4 +1,3 @@
-import style from "./contacts.module.scss";
 import PropTypes from 'prop-types';
 import React from "react";
 import { useEffect } from "react";
@@ -25,14 +24,14 @@ export default function Contacts({ title, children }) {
         
     if (items.length < 1 ) {
         return (
-            <div className={style.contacts__emty}>
+            <div>
                 <h2>Missing contacts</h2>
             </div>
         );
     }
                 
     return (
-        <div className={style.contacts}>
+        <div>
             {isLoading && <div>
                 <FadeLoader
                     color="#ffffff"
@@ -52,15 +51,13 @@ export default function Contacts({ title, children }) {
                         <h2>{title}</h2>
                         {children}
                     </div>
-                    <div className={style.contacts__wrap}>
-                        <ul
-                            className={style.contacts__list}>
+                    <div>
+                        <ul>
                             {filterContacts.map(({ id, name, number }) => (
-                                <li key={id} className={style.contacts__item}>
+                                <li key={id}>
                                     <p>{name}</p>
                                     <p>{number}</p>
                                     <button
-                                        className={style.contacts__button}
                                         type='button'
                                         onClick={() => { dispatch(deleteContacts(id)) }}>
                                         Remove

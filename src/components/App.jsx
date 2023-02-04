@@ -1,17 +1,24 @@
-// import Section from "./section";
-// import Contacts from "./contacts";
-// import Form from "./form/form";
-// import Filter from './filter';
+
 import { Routes, Route } from "react-router-dom";
-import Header from "./header/header";
+import Nav from "./navigation/Nav";
+import Home from "pages/Home";
+import Register from "pages/Register";
+import Login from "pages/Login";
+
 
 export const App = () => {
 
   return (
     <Routes>
-      
-    <Route path="/" element={<Header/>}/>
-    <Route path="*" element={<p>No Content</p>} />
+      <Route path="/" element={<Nav />}>
+        <Route index element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login/>} />
+        
+      </Route>
+
+      <Route path="*" element={<div>Nothing</div>} />
+
     </Routes>
   );
 }

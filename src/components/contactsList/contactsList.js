@@ -12,7 +12,7 @@ const fadeLoaderCss = {
     right: '200px'
 }
 
-export default function Contacts({ title, children }) {
+export default function ContactsList({ title, children }) {
     const dispatch = useDispatch()
     const { items, isLoading, error } = useSelector(selectContacts);
     const filter = useSelector(selectFilters);
@@ -72,7 +72,7 @@ export default function Contacts({ title, children }) {
     );
 };
 
-Contacts.protoType = {
+ContactsList.protoType = {
     title: PropTypes.string.isRequired,
 }
 

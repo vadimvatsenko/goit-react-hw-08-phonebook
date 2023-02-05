@@ -1,19 +1,10 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import AppRegistrationTwoToneIcon from '@mui/icons-material/AppRegistrationTwoTone';
+import {Container, Button, Typography, Toolbar, AppBar } from '@mui/material'
+//Icons
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/Login';
 
-
-import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
+import {Outlet, Link } from "react-router-dom";
 
 export default function Nav() {
     return (
@@ -24,10 +15,11 @@ export default function Nav() {
                         position="static">
                         <Container>
                             <Toolbar>
-                                <Link to="/">
+                                <Link to="/"
+                                style={{color: 'white'}}>
                                     <Button color="inherit">
-                                        <HomeTwoToneIcon />
-                                        Home
+                                        <HomeIcon />
+                                        <Typography>Home</Typography>
                                     </Button>
                                 </Link>
                                 <Link to="/register"
@@ -35,14 +27,16 @@ export default function Nav() {
                                             marginLeft: 'auto'
                                         }}>
                                     <Button color="inherit">
-                                        <AppRegistrationTwoToneIcon />
-                                        Register
+                                        <AppRegistrationIcon />
+                                        <Typography>Register</Typography>
+                                        
                                     </Button>
                                 </Link>
                                 <Link to="/login">
                                     <Button color="inherit">
-                                        <AccountCircleTwoToneIcon />
-                                        Log In
+                                        <LoginIcon />
+                                        <Typography>Log In</Typography>
+                                        
                                     </Button>
                                 </Link>
             

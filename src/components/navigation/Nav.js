@@ -4,7 +4,8 @@ import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 
-import {Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { StyledLink } from './nav.styled';
 
 export default function Nav() {
     return (
@@ -15,14 +16,13 @@ export default function Nav() {
                         position="static">
                         <Container>
                             <Toolbar>
-                                <Link to="/"
-                                style={{color: 'white'}}>
+                                <StyledLink to="/">
                                     <Button color="inherit">
                                         <HomeIcon />
                                         <Typography>Home</Typography>
                                     </Button>
-                                </Link>
-                                <Link to="/register"
+                                </StyledLink>
+                                <StyledLink to="/register"
                                     style={{
                                             marginLeft: 'auto'
                                         }}>
@@ -31,14 +31,14 @@ export default function Nav() {
                                         <Typography>Register</Typography>
                                         
                                     </Button>
-                                </Link>
-                                <Link to="/login">
+                                </StyledLink>
+                                <StyledLink to="/login">
                                     <Button color="inherit">
                                         <LoginIcon />
-                                        <Typography>Log In</Typography>
+                                        <Typography >Log In</Typography>
                                         
                                     </Button>
-                                </Link>
+                                </StyledLink>
             
                             </Toolbar>
                         </Container>

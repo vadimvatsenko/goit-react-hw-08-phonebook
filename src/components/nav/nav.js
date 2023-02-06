@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { useAuth } from 'hooks';
+import { useAuth } from 'hooks/useAuth';
 import css from './Navigation.module.css';
 
-export const Navigation = () => {
+export const Nav = () => {
   const { isLoggedIn } = useAuth();
 
   return (

@@ -1,3 +1,5 @@
+//DONE
+import style from './form.module.scss'
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 import { useSelector, useDispatch } from "react-redux";
@@ -39,10 +41,16 @@ export default function Form() {
 
 
     return (
-        <form onSubmit={formSubmitHandle}>
-            <label htmlFor={nameInputId}>Name
+        <form
+            className={style.form__section}
+            onSubmit={formSubmitHandle}
+        >
+            <label
+                className={style.label__header}
+                htmlFor={nameInputId}>Name
             </label>
             <input
+                className={style.label__input}
                 id={nameInputId}
                 type="text"
                 name="name"
@@ -50,8 +58,10 @@ export default function Form() {
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
             />
-            <label htmlFor={numberInputId}>Number</label>
+            <label className={style.label__header}
+                htmlFor={numberInputId}>Number</label>
             <input
+                className={style.label__input}
                 id={numberInputId}
                 type="tel"
                 name="number"
@@ -60,7 +70,11 @@ export default function Form() {
                 required
             />
 
-            <button type="submit">Add contact</button>
+            <button
+                className={style.phonebook__button}
+                type="submit">
+                Add contact
+            </button>
         </form>
         
     );

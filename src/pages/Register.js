@@ -58,12 +58,13 @@ export default function Register() {
                         <TextField
                             id={nameId}
                             label="Name"
-                            variant="filled"
+                            variant="outlined"
                             fullWidth
                             type='text'
                             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                             required
                             name="name"
+    
 
                         />
                
@@ -71,7 +72,7 @@ export default function Register() {
                         <TextField
                             id={emailID}
                             label="Email"
-                            variant="filled"
+                            variant="outlined"
                             fullWidth
                             type='email'
                             pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
@@ -82,7 +83,7 @@ export default function Register() {
                         <TextField
                             id={passwordId}
                             label="Password"
-                            variant="filled"
+                            variant="outlined"
                             type='password'
                             fullWidth
                             required

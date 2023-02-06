@@ -7,6 +7,9 @@ import LoginIcon from '@mui/icons-material/Login';
 import { Outlet } from "react-router-dom";
 import { StyledLink } from './nav.styled';
 
+
+
+
 export default function Nav() {
     return (
         <>
@@ -24,8 +27,8 @@ export default function Nav() {
                                 </StyledLink>
                                 <StyledLink to="/register"
                                     style={{
-                                            marginLeft: 'auto'
-                                        }}>
+                                        marginLeft: 'auto'
+                                    }}>
                                     <Button color="inherit">
                                         <AppRegistrationIcon />
                                         <Typography>Register</Typography>
@@ -35,7 +38,7 @@ export default function Nav() {
                                 <StyledLink to="/login">
                                     <Button color="inherit">
                                         <LoginIcon />
-                                        <Typography >Log In</Typography>
+                                        <Typography>Log In</Typography>
                                         
                                     </Button>
                                 </StyledLink>
@@ -47,7 +50,6 @@ export default function Nav() {
                 </nav>
             </header>
             <Outlet />
-            
         </>
     );
 }

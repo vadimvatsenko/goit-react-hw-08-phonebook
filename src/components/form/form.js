@@ -34,10 +34,6 @@ export default function Form() {
         form.reset();
     }
 
-    
-
-
-
     return (
         <form onSubmit={formSubmitHandle}>
             <label htmlFor={nameInputId}>Name

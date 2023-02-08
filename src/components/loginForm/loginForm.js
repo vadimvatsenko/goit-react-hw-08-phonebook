@@ -17,6 +17,7 @@ export default function LoginForm() {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit} autoComplete="off">
       <label>
         Email
@@ -28,5 +29,8 @@ export default function LoginForm() {
       </label>
       <button type="submit">Log In</button>
     </form>
+      <div>vadim.vatsenko@gmail.com</div>
+      <div>1111111</div>
+      </>
   );
 };

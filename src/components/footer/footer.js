@@ -1,5 +1,13 @@
+import { Outlet } from "react-router-dom";
+
 export default function Footer() {
-    return (
-      <div>Vadym Vatsenko</div>
+  return (
+      <>
+      <div style={{
+        height: '100px',
+        background: 'blue'
+      }}>Vadym Vatsenko</div>
+      <Outlet />
+      </>
     );
 }

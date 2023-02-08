@@ -1,6 +1,6 @@
 
 import { Routes, Route } from "react-router-dom";
-import { useEffect, lazy, Suspense  } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useAuth } from "hooks/useAuth";
@@ -35,7 +35,7 @@ export const App = () => {
           }
         />
         <Route path="/login" element={
-            <RestrictedRoute redirectTo="/contatcs" component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         /> 
         <Route path="/contacts" element={

@@ -19,7 +19,13 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      
+      if (error.response.data.name === 'MongoError') {
+        alert('alert')
+      }
       return thunkAPI.rejectWithValue(error.message);
+
+      
     }
   }
 );
@@ -33,6 +39,9 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.name === 'AxiosError') {
+        alert('wrong password')
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -60,7 +69,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/me');
+      const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

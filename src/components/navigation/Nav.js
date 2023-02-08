@@ -2,7 +2,6 @@ import {Container, Button, Typography, Toolbar, AppBar } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 
-
 import { Outlet } from "react-router-dom";
 import { StyledLink } from './nav.styled';
 import { Suspense } from 'react'
@@ -12,12 +11,6 @@ import UserMenu from 'components/userMenu/userMenu';
 
 import { useAuth } from 'hooks/useAuth';
  
-
-
-
-
-
-
 export default function Nav() {
     const { isLoggedIn } = useAuth();
     return (

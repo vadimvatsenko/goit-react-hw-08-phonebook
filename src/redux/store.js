@@ -4,7 +4,7 @@ import { filterReducer } from "./contacts/filterSlice";
 import { contactsReducer } from "./contacts/contactsSlice";
 import { authReducer } from './auth/slice';
 
-import { combineReducers } from "@reduxjs/toolkit";
+// import { combineReducers } from "@reduxjs/toolkit";
 
 import {
   persistStore,
@@ -33,16 +33,20 @@ const middleware = [
 ];
 
 
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-  auth: persistReducer(authPersistConfig, authReducer)
-});
+// const rootReducer = combineReducers({
+//   contacts: contactsReducer,
+//   filter: filterReducer,
+//   auth: persistReducer(authPersistConfig, authReducer)
+// });
 
 export const store = configureStore({
-  reducer: rootReducer,
-   middleware,
-    devTools: process.env.NODE_ENV === 'development',
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    contacts: contactsReducer,
+    filter: filterReducer,
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 
 });
 

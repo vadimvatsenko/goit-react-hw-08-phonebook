@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { Button, Typography } from '@mui/material';
-import { display } from '@mui/system';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-  const { user } = useAuth();
+    const { user } = useAuth();
 
     return (
         <>

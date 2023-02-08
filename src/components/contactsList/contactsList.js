@@ -21,6 +21,7 @@ export default function ContactsList({ title, children }) {
     useEffect(() => {
     dispatch(fetchContatcts());
     }, [dispatch]);
+
         
     if (items.length < 1 ) {
         return (

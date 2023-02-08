@@ -1,6 +1,7 @@
 import { StyledLink } from '../navigation/nav.styled';
-import { Button, Typography, AppRegistrationIcon } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 
 
 export default function AuthNav() {

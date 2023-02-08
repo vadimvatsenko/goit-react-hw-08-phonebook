@@ -4,6 +4,7 @@ import Nav from "./navigation/Nav";
 import Home from "pages/Home";
 import Register from "pages/Register";
 import Login from "pages/Login";
+import ContactsList from "./contactsList/contactsList";
 import Footer from "./footer/footer";
 
 
@@ -15,7 +16,8 @@ export const App = () => {
 
         <Route index element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contacts" element={<ContactsList/>}/>
         
       </Route>
 

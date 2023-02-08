@@ -1,6 +1,6 @@
 
 import { Routes, Route } from "react-router-dom";
-import { useEffect, lazy } from 'react';
+import { useEffect, lazy, Suspense  } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useAuth } from "hooks/useAuth";
@@ -25,8 +25,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
-  ) : (
+    <div>Refreshing user...</div>) : (
     <Routes>
       <Route path="/" element={<Nav />}>
 
@@ -48,7 +47,8 @@ export const App = () => {
 
       <Route path="*" element={<div>Nothing</div>} />
 
-    </Routes>
+      </Routes>
+      
   );
 }
 

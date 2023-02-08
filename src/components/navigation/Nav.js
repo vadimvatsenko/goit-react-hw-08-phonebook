@@ -5,6 +5,7 @@ import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 
 import { Outlet } from "react-router-dom";
 import { StyledLink } from './nav.styled';
+import { Suspense } from 'react'
 
 import AuthNav from 'components/authNav/authNav';
 import UserMenu from 'components/userMenu/userMenu';
@@ -48,7 +49,12 @@ export default function Nav() {
                     </AppBar>
                 </nav>
             </header>
-            <Outlet />
+            <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+            <footer style={{
+      
+    }}>Vadim</footer>
 
 
         </>

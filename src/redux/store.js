@@ -1,66 +1,39 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import {contactsReducer} from './contacts/contactsSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import { filterReducer } from "./contacts/filterSlice";
+import { contactsReducer } from "./contacts/contactsSlice";
 import { authReducer } from './auth/slice';
+import { combineReducers } from "@reduxjs/toolkit";
 
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
 
-const authPersistConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['token'],
-};
 
-export const store = configureStore({
-  reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
-    contacts: contactsReducer,
-  },
-  middleware,
-  devTools: process.env.NODE_ENV === 'development',
+const rootReducer = combineReducers({
+  contacts: contactsReducer,
+  filter: filterReducer,
+  auth: authReducer
 });
 
-export const persistor = persistStore(store);
+export const store = configureStore({
+  reducer: rootReducer,
+});
 
 
+
+//=============== Before 2 ========================
 // import { configureStore } from "@reduxjs/toolkit";
-
-// import storage from 'redux-persist/lib/storage';
-// import { filterReducer } from "./contacts/filterSlice";
-// import { contactsReducer } from "./contacts/contactsSlice";
-// import { authReducer } from "./auth/slice";
-
-// import { combineReducers } from "@reduxjs/toolkit";
-
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token'],
-// };
-
-// const rootReducer = combineReducers({
-//   contacts: contactsReducer,
-//   filter: filterReducer,
-//   auth: persistReducer(authPersistConfig, authReducer),
-// });
+// import { rootContacts, rootFilters } from "./contacts/reducer";
 
 // export const store = configureStore({
-//   reducer: rootReducer,
+//     reducer: {
+//         contacts: rootContacts,
+//         filters: rootFilters
+//   }
 // });
 
+//=============== Before ========================
+// import { createStore } from "redux";
+// import { devToolsEnhancer } from "@redux-devtools/extension";
+// import { rootReducer } from "./contacts/reducer";
+
+// // Создаем расширение стора чтобы добавить инструменты разработчика
+// const enhancer = devToolsEnhancer();
+// export const store = createStore(rootReducer, enhancer);

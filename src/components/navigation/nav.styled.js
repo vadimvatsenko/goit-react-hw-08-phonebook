@@ -7,7 +7,19 @@ export const StyledLink = styled(NavLink)`
   color: #fff;
 
   &.active {
-    color: #ba000d;
+    color: green;
   }
 `;
+
+export const Wrapper = styled('div')`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  `;
+
+  export const Content = styled('div')`
+  flex: 1 0 auto;
+  `;
+
+
 

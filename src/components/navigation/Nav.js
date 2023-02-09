@@ -3,18 +3,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 
 import { Outlet } from "react-router-dom";
-import { StyledLink } from './nav.styled';
+import { StyledLink, Wrapper, Content } from './nav.styled';
 import { Suspense } from 'react'
 
 import AuthNav from 'components/authNav/authNav';
 import UserMenu from 'components/userMenu/userMenu';
+import Footer from 'components/footer/footer';
 
 import { useAuth } from 'hooks/useAuth';
  
 export default function Nav() {
     const { isLoggedIn } = useAuth();
     return (
-        <>
+        <Wrapper>
+            <Content>
             <header>
                 <nav>
                     <AppBar
@@ -24,16 +26,16 @@ export default function Nav() {
                                 <StyledLink to="/">
                                     <Button color="inherit">
                                         <HomeIcon />
-                                        <Typography>Home</Typography>
+                                        <Typography ml={0.5}>Home</Typography>
                                     </Button>
                                 </StyledLink>
                                 {isLoggedIn && (
                                     <StyledLink to="/contacts">
-                                    <Button color="inherit">
-                                        <ImportContactsIcon />
-                                        <Typography>Contacts</Typography>
-                                    </Button>
-                                </StyledLink>)}
+                                        <Button color="inherit" >
+                                            <ImportContactsIcon />
+                                            <Typography ml={0.5}>Contacts</Typography>
+                                        </Button>
+                                    </StyledLink>)}
                                 {isLoggedIn ? <UserMenu /> : <AuthNav />}
             
                             </Toolbar>
@@ -41,16 +43,13 @@ export default function Nav() {
           
                     </AppBar>
                 </nav>
-            </header>
+                </header>
+                </Content>
             <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
-            <footer style={{
-      
-    }}>Vadim</footer>
-
-
-        </>
+                <Outlet />
+            </Suspense>
+            <Footer />
+        </Wrapper>
     );
 }
 

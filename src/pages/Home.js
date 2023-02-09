@@ -1,9 +1,12 @@
-
+import { HomeBg } from "./Home.styled"
 
 export default function Home() {
     return (
-    <div>
-      <canvas></canvas>
-    </div>
+      <HomeBg/>
+
+        
+
+       
+
     )
 }

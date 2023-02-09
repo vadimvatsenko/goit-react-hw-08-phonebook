@@ -17,37 +17,37 @@ export default function Nav() {
     return (
         <Wrapper>
             <Content>
-            <header>
-                <nav>
-                    <AppBar
-                        position="static">
-                        <Container>
-                            <Toolbar>
-                                <StyledLink to="/">
-                                    <Button color="inherit">
-                                        <HomeIcon />
-                                        <Typography ml={0.5}>Home</Typography>
-                                    </Button>
-                                </StyledLink>
-                                {isLoggedIn && (
-                                    <StyledLink to="/contacts">
-                                        <Button color="inherit" >
-                                            <ImportContactsIcon />
-                                            <Typography ml={0.5}>Contacts</Typography>
+                <header>
+                    <nav>
+                        <AppBar
+                            position="static">
+                            <Container>
+                                <Toolbar>
+                                    <StyledLink to="/">
+                                        <Button color="inherit">
+                                            <HomeIcon />
+                                            <Typography ml={0.5}>Home</Typography>
                                         </Button>
-                                    </StyledLink>)}
-                                {isLoggedIn ? <UserMenu /> : <AuthNav />}
+                                    </StyledLink>
+                                    {isLoggedIn && (
+                                        <StyledLink to="/contacts">
+                                            <Button color="inherit" >
+                                                <ImportContactsIcon />
+                                                <Typography ml={0.5}>Contacts</Typography>
+                                            </Button>
+                                        </StyledLink>)}
+                                    {isLoggedIn ? <UserMenu /> : <AuthNav />}
             
-                            </Toolbar>
-                        </Container>
+                                </Toolbar>
+                            </Container>
           
-                    </AppBar>
-                </nav>
+                        </AppBar>
+                    </nav>
                 </header>
-                </Content>
-            <Suspense fallback={null}>
-                <Outlet />
-            </Suspense>
+                <Suspense fallback={null}>
+                    <Outlet />
+                </Suspense>
+            </Content>
             <Footer />
         </Wrapper>
     );

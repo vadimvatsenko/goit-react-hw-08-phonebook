@@ -1,12 +1,13 @@
-
+import Box from '@mui/material/Box';
 
 export default function Footer() {
   return (
-
-      <div style={{
-        height: '100px',
-        background: 'blue'
-      }}>Vadym Vatsenko</div>
-
-    );
+    <Box
+      sx={{
+        width: '100%',
+        height: 50,
+        backgroundColor: 'primary.main',
+      }}
+    />
+  );
 }

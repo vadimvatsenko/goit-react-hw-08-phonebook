@@ -17,14 +17,14 @@ export default function UserMenu() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-            }}> 
-                    <Typography style={{display: 'flex'}}>Welcome, <AccountCircleIcon/>{user.name}</Typography>
+            }}>
+                <Typography style={{ display: 'flex' }}>Welcome, <AccountCircleIcon />{user.name}</Typography>
                    
                 <Button color="inherit" type="button" onClick={() => dispatch(logOut())}>
-                    <div style={{display: 'flex'}}>
+                    <div style={{ display: 'flex' }}>
                         <Typography>Logout</Typography>
-                        <LogoutIcon/>
-                        </div>
+                        <LogoutIcon />
+                    </div>
                 </Button>
             </div>
         </>

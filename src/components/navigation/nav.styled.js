@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 
 export const StyledLink = styled(NavLink)`
-  color: #fff;
+  color: primary.contrastText;
 
   &.active {
     color: green;

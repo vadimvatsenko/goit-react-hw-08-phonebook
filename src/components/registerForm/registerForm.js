@@ -13,6 +13,7 @@ import {
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import BadgeIcon from '@mui/icons-material/Badge';
 
 import { LoginBoxStyle } from 'components/loginForm/loginForm';
 
@@ -69,6 +70,15 @@ export default function RegisterForm() {
                             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                             required
                             name="name"
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <BadgeIcon
+                                        aria-label="userIcon"
+                                        edge="end"
+                                    >
+                                    </BadgeIcon>
+                                </InputAdornment>
+                            }
                         />
                         <FormHelperText
                             id={nameId}>
@@ -90,6 +100,16 @@ export default function RegisterForm() {
                             pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
                             required
                             name="email"
+                            autocomplete='off'
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <BadgeIcon
+                                        aria-label="userIcon"
+                                        edge="end"
+                                    >
+                                    </BadgeIcon>
+                                </InputAdornment>
+                            }
                         />
                         <FormHelperText
                             id={emailID}>

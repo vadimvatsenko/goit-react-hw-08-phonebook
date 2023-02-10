@@ -1,12 +1,10 @@
-import { HomeBg } from "./Home.styled"
+import WhiteOrDark from "components/themeMode/themeMode";
 
 export default function Home() {
-    return (
-      <HomeBg/>
+  return (
+ <WhiteOrDark/>
+  );
 
-        
-
-       
-
-    )
 }
+
+

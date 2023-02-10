@@ -5,9 +5,10 @@ import styled from "styled-components";
 
 export const StyledLink = styled(NavLink)`
   color: #fff;
+  font-weight: 400;
 
   &.active {
-    color: green;
+    color: #f44336;
   }
 `;
 

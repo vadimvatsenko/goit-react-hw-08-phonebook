@@ -4,15 +4,14 @@ import { logIn } from 'redux/auth/operations';
 import { nanoid } from 'nanoid';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-import { FormControl, Box, InputLabel, Input, FormHelperText, FormGroup, Button, FilledInput  } from '@mui/material';
+import { FormControl, Box, InputLabel, FormHelperText, FormGroup, Button, FilledInput } from '@mui/material';
 
 const emailInputId = nanoid();
 const passwordInputId = nanoid();
 
-const LoginBoxStyle = {
+export const LoginBoxStyle = {
       width: '400px',
       height: 'auto',
-      backgroundColor: 'primary.main',
       margin: '0 auto',
       marginTop: 5,
       borderRadius: '10px',
@@ -42,14 +41,34 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit}>
         <FormGroup>
           <FormControl fullWidth>
-            <InputLabel htmlFor={emailInputId}>Email address</InputLabel>
-            <FilledInput id={emailInputId} aria-describedby="my-helper-text" variant="outlined" name='email' required />
-            <FormHelperText id={emailInputId}>We'll never share your email.</FormHelperText>
+            <InputLabel
+              htmlFor={emailInputId}>
+              Email address
+            </InputLabel>
+            <FilledInput
+              id={emailInputId}
+              aria-describedby="my-helper-text"
+              name='email'
+              required />
+            <FormHelperText
+              id={emailInputId}>
+              We'll never share your email.
+            </FormHelperText>
           </FormControl>
           <FormControl fullWidth>
-            <InputLabel htmlFor={passwordInputId}>Password</InputLabel>
-            <FilledInput id={passwordInputId} aria-describedby="my-helper-text" variant="outlined" name='password' required />
-            <FormHelperText id={passwordInputId}>We'll never share your password.</FormHelperText>
+            <InputLabel
+              htmlFor={passwordInputId}>
+              Password
+            </InputLabel>
+            <FilledInput
+              id={passwordInputId}
+              aria-describedby="my-helper-text"
+              name='password'
+              required />
+            <FormHelperText
+              id={passwordInputId}>
+              We'll never share your password.
+            </FormHelperText>
           </FormControl>
           <Button variant="contained" type='submit' fullWidth>Log In</Button>
         </FormGroup>

@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContacts } from 'redux/contacts/operations';
 
+import { FormControl, Box, InputLabel, FormHelperText, FormGroup, Button, FilledInput } from '@mui/material';
+import { LoginBoxStyle } from 'components/loginForm/loginForm';
+
 export default function Form() {
     const {items} = useSelector(selectContacts);
     const dispatch = useDispatch()
@@ -35,7 +38,9 @@ export default function Form() {
     }
 
     return (
+        <Box sx={LoginBoxStyle}>
         <form onSubmit={formSubmitHandle}>
+            <FormGroup>
             <label htmlFor={nameInputId}>Name
             </label>
             <input
@@ -57,7 +62,9 @@ export default function Form() {
             />
 
             <button type="submit">Add contact</button>
+            </FormGroup>
         </form>
+        </Box>
         
     );
 }

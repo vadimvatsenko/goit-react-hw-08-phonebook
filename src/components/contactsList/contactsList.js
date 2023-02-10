@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectContacts, selectFilters } from "redux/contacts/selectors";
 import { deleteContacts } from "redux/contacts/operations";
 
-import { Box, Button, Container, Typography, List } from '@mui/material';
+import { Box, Container, Typography, List, ListItem, ListItemText, Button } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 
 export default function ContactsList({ title, children }) {
@@ -43,25 +43,25 @@ export default function ContactsList({ title, children }) {
             </Container>}
             {error ? (<p>{error}</p>) :
                 (<Container>
-                    <div>
+                    <Box>
                         <Typography variant="h1" component="h2">{title}</Typography>
                         {children}
-                    </div>
-                    <div>
-                        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                    </Box>
+                    <Box sx={{ width: 300, margin: '0 auto', bgcolor: 'primary' }}>
+                        <List sx={{ width: '100%', maxWidth: 360 }}>
                             {filterContacts.map(({ id, name, number }) => (
-                                <li key={id}>
-                                    <p>{name}</p>
-                                    <p>{number}</p>
-                                    <Button variant="contained"
+                                <ListItem key={id}>
+                                    <ListItemText primary={name} secondary={number} />
+                                    <Button
+                                        variant="contained"
                                         type='button'
                                         onClick={() => { dispatch(deleteContacts(id)) }}>
                                         Remove
                                     </Button>
-                                </li>
+                                </ListItem>
                             ))}
                         </List>
-                    </div>
+                    </Box>
                 </Container>
                 )}
         </Container>

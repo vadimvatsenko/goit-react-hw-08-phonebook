@@ -87,7 +87,7 @@ export default function RegisterForm() {
                         </FormHelperText>
                     </FormControl>
                
-                    <FormControl required autocomplete='off'>
+                    <FormControl required>
                         <InputLabel
                             htmlFor={emailID}>
                             Email
@@ -118,7 +118,6 @@ export default function RegisterForm() {
                         </FormHelperText>
                     </FormControl>
                     <FormControl
-                        autocomplete='off'
                         required
                         type={showPassword ? 'text' : 'password'}>
                         <InputLabel

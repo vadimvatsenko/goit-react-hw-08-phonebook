@@ -4,8 +4,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectContacts } from 'redux/contacts/selectors';
 import { addContacts } from 'redux/contacts/operations';
 
-import { FormControl, Box, InputLabel, FormHelperText, FormGroup, Button, FilledInput } from '@mui/material';
+import { FormControl, Box, InputLabel, FormHelperText, FormGroup, Button, FilledInput, InputAdornment } from '@mui/material';
 import { LoginBoxStyle } from 'components/loginForm/loginForm';
+
+import BadgeIcon from '@mui/icons-material/Badge';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 
 export default function Form() {
     const {items} = useSelector(selectContacts);
@@ -41,27 +44,58 @@ export default function Form() {
         <Box sx={LoginBoxStyle}>
         <form onSubmit={formSubmitHandle}>
             <FormGroup>
-            <label htmlFor={nameInputId}>Name
-            </label>
-            <input
+                <FormControl required>
+            <InputLabel 
+                htmlFor={nameInputId}>
+                    Name
+            </InputLabel>
+            <FilledInput
                 id={nameInputId}
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                required
+                endAdornment={
+                                <InputAdornment position="end">
+                                    <BadgeIcon
+                                        aria-label="nameIcon"
+                                        edge="end">
+                                    </BadgeIcon>
+                                </InputAdornment>
+                            }
             />
-            <label htmlFor={numberInputId}>Number</label>
-            <input
+            <FormHelperText
+                            id={nameInputId}>
+                            Please enter name.
+                        </FormHelperText>
+            </FormControl>
+            <FormControl required>
+            <InputLabel 
+                htmlFor={numberInputId}>
+                    Number
+                    </InputLabel>
+            <FilledInput
                 id={numberInputId}
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                required
+                endAdornment={
+                                <InputAdornment position="end">
+                                    <PhoneAndroidIcon
+                                        aria-label="phoneIcon"
+                                        edge="end">
+                                    </PhoneAndroidIcon>
+                                </InputAdornment>
+                            }
             />
+            </FormControl>
+             <FormHelperText
+                            id={nameInputId}>
+                            Please enter number.
+                        </FormHelperText>
 
-            <button type="submit">Add contact</button>
+            <Button type="submit" variant="contained">Add contact</Button>
             </FormGroup>
         </form>
         </Box>

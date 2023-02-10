@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
 import { nanoid } from 'nanoid';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import InputIcon from '@mui/icons-material/Input';
 
 import { FormControl, Box, InputLabel, FormHelperText, FormGroup, Button, FilledInput } from '@mui/material';
 
@@ -37,7 +38,7 @@ export default function LoginForm() {
   return (
  
     <Box sx={LoginBoxStyle}>
-      <AccountCircleIcon fontSize="large" color="secondary" />
+      <InputIcon fontSize="large" color="secondary" />
       <form onSubmit={handleSubmit}>
         <FormGroup>
           <FormControl fullWidth>

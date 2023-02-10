@@ -15,6 +15,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import BadgeIcon from '@mui/icons-material/Badge';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 import { LoginBoxStyle } from 'components/loginForm/loginForm';
 
@@ -26,8 +27,6 @@ import { register } from 'redux/auth/operations';
 const nameId = nanoid();
 const emailID = nanoid();
 const passwordId = nanoid();
-
-
 
 export default function RegisterForm() {
     
@@ -55,6 +54,7 @@ export default function RegisterForm() {
     }
     return (
         <Box sx={LoginBoxStyle}>
+            <HowToRegIcon fontSize="large" color="secondary"/>
             <form onSubmit={handleSubmit}>
                 <FormGroup>
                     <FormControl required>

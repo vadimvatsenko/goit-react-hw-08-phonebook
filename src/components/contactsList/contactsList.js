@@ -5,12 +5,9 @@ import { fetchContatcts } from "redux/contacts/operations";
 import { useSelector, useDispatch } from "react-redux";
 import { selectContacts, selectFilters } from "redux/contacts/selectors";
 import { deleteContacts } from "redux/contacts/operations";
-import FadeLoader from "react-spinners/FadeLoader";
 
-const fadeLoaderCss = {
-    position: 'absolute',
-    right: '200px'
-}
+import { Box, Button, Container, Typography, List } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 
 export default function ContactsList({ title, children }) {
     const dispatch = useDispatch()
@@ -25,51 +22,49 @@ export default function ContactsList({ title, children }) {
         
     if (items.length < 1 ) {
         return (
-            <div>
-                <h2>Missing contacts</h2>
-            </div>
+            <Container>
+                <Typography variant="h5"
+                    align='center'
+                    sx={{ color: 'primary.main' }}>
+                    Missing contacts
+                </Typography>
+            </Container>
         );
     }
                 
     return (
-        <div>
-            {isLoading && <div>
-                <FadeLoader
-                    color="#ffffff"
-                    cssOverride={fadeLoaderCss}
-                    height={10}
-                    loading={true}
-                    margin={10}
-                    radius={20}
-                    speedMultiplier={3}
-                    width={20}
-                />
-        
-            </div>}
+        <Container>
+            {isLoading && <Container>
+                <Box sx={{ width: 300, margin: '0 auto' }}>
+                    <Skeleton />
+                    <Skeleton animation="pulse" />
+                    <Skeleton animation={false} />
+                </Box>
+            </Container>}
             {error ? (<p>{error}</p>) :
-                (<div>
+                (<Container>
                     <div>
-                        <h2>{title}</h2>
+                        <Typography variant="h1" component="h2">{title}</Typography>
                         {children}
                     </div>
                     <div>
-                        <ul>
+                        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             {filterContacts.map(({ id, name, number }) => (
                                 <li key={id}>
                                     <p>{name}</p>
                                     <p>{number}</p>
-                                    <button
+                                    <Button variant="contained"
                                         type='button'
                                         onClick={() => { dispatch(deleteContacts(id)) }}>
                                         Remove
-                                    </button>
+                                    </Button>
                                 </li>
                             ))}
-                        </ul>
+                        </List>
                     </div>
-                </div>
+                </Container>
                 )}
-        </div>
+        </Container>
     );
 };
 

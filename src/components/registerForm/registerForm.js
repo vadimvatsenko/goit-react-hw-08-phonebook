@@ -14,6 +14,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import BadgeIcon from '@mui/icons-material/Badge';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 
 import { LoginBoxStyle } from 'components/loginForm/loginForm';
 
@@ -56,7 +57,7 @@ export default function RegisterForm() {
         <Box sx={LoginBoxStyle}>
             <form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <FormControl>
+                    <FormControl required>
                         <InputLabel
                             htmlFor={nameId}>
                             Name
@@ -86,7 +87,7 @@ export default function RegisterForm() {
                         </FormHelperText>
                     </FormControl>
                
-                    <FormControl>
+                    <FormControl required autocomplete='off'>
                         <InputLabel
                             htmlFor={emailID}>
                             Email
@@ -100,14 +101,14 @@ export default function RegisterForm() {
                             pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
                             required
                             name="email"
-                            autocomplete='off'
+                            
                             endAdornment={
                                 <InputAdornment position="end">
-                                    <BadgeIcon
+                                    <ContactMailIcon
                                         aria-label="userIcon"
                                         edge="end"
                                     >
-                                    </BadgeIcon>
+                                    </ContactMailIcon>
                                 </InputAdornment>
                             }
                         />
@@ -117,6 +118,7 @@ export default function RegisterForm() {
                         </FormHelperText>
                     </FormControl>
                     <FormControl
+                        autocomplete='off'
                         required
                         type={showPassword ? 'text' : 'password'}>
                         <InputLabel
